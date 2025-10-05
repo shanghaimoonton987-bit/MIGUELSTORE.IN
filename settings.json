@@ -1,0 +1,16 @@
+{
+  "site_name": "ACE PRIME.IN",
+  "creator": "Megie",
+  "contact_whatsapp": "+919954151225",
+  "theme": {
+    "primary": "#ff7dee",
+    "secondary": "#7d7dff",
+    "background": "https://share.google/c0eeTZzCiAywy7jMF",
+    "font": "Poppins"
+  },
+  "animations": {
+    "particles": true,
+    "fade_in": true
+  },
+  "collaboration": "Darling in the FranXX"
+}
