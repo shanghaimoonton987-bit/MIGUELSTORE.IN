@@ -71,9 +71,40 @@ document.addEventListener("DOMContentLoaded", () => {
 // 🌈 Additional Features for ACE PRIME.IN
 
 // 🎵 Background Music Toggle
+// 🎧 Background Music Control
 const bgMusic = new Audio("assets/sounds/background.mp3");
 bgMusic.loop = true;
-let isMusicPlaying = false;
+bgMusic.volume = 0;
+let musicPlaying = false;
+const musicButton = document.getElementById("music-toggle");
+const musicStatus = document.getElementById("music-status");
+
+// 🌈 Smooth fade in/out
+function fadeAudio(targetVolume, duration) {
+  const step = (targetVolume - bgMusic.volume) / (duration / 100);
+  const fade = setInterval(() => {
+    if ((step > 0 && bgMusic.volume >= targetVolume) ||
+        (step < 0 && bgMusic.volume <= targetVolume)) {
+      clearInterval(fade);
+      bgMusic.volume = targetVolume;
+      return;
+    }
+    bgMusic.volume = Math.min(1, Math.max(0, bgMusic.volume + step));
+  }, 100);
+}
+
+musicButton.addEventListener("click", () => {
+  if (!musicPlaying) {
+    bgMusic.play();
+    fadeAudio(1, 2000); // fade in over 2 seconds
+    musicStatus.textContent = "On";
+  } else {
+    fadeAudio(0, 1500); // fade out over 1.5 seconds
+    setTimeout(() => bgMusic.pause(), 1500);
+    musicStatus.textContent = "Off";
+  }
+  musicPlaying = !musicPlaying;
+});
 
 function toggleMusic() {
   if (isMusicPlaying) {
