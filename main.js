@@ -68,3 +68,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// 🌈 Additional Features for ACE PRIME.IN
+
+// 🎵 Background Music Toggle
+const bgMusic = new Audio("assets/sounds/background.mp3");
+bgMusic.loop = true;
+let isMusicPlaying = false;
+
+function toggleMusic() {
+  if (isMusicPlaying) {
+    bgMusic.pause();
+  } else {
+    bgMusic.play();
+  }
+  isMusicPlaying = !isMusicPlaying;
+}
+const musicButton = document.createElement("button");
+musicButton.classList.add("music-btn");
+musicButton.innerHTML = "🎵 Music";
+musicButton.onclick = toggleMusic;
+document.body.appendChild(musicButton);
+
+// 💫 Floating Text Animation
+const floatingText = document.createElement("div");
+floatingText.classList.add("floating-text");
+floatingText.innerText = "💖 Welcome to ACE PRIME.IN 💖";
+document.body.appendChild(floatingText);
+
+setInterval(() => {
+  floatingText.style.left = Math.random() * window.innerWidth + "px";
+  floatingText.style.top = Math.random() * window.innerHeight + "px";
+}, 3000);
+
+// 👁️ Simple Visitor Counter (local)
+let count = localStorage.getItem("visitCount") || 0;
+count++;
+localStorage.setItem("visitCount", count);
+
+const counter = document.createElement("div");
+counter.classList.add("visit-counter");
+counter.innerHTML = `👁️ Visitors: <strong>${count}</strong>`;
+document.body.appendChild(counter);
+
+// 💬 Typing Text Animation
+const typingTarget = document.querySelector(".content h2 span");
+if (typingTarget) {
+  const text = typingTarget.textContent;
+  typingTarget.textContent = "";
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      typingTarget.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 100);
+    }
+  }
+  typeEffect();
+}
+
+// 🌗 Theme Switch Button
+const themeToggle = document.createElement("button");
+themeToggle.classList.add("theme-toggle");
+themeToggle.innerHTML = "🌗 Theme";
+themeToggle.onclick = () => {
+  document.body.classList.toggle("light-theme");
+};
+document.body.appendChild(themeToggle);
+
