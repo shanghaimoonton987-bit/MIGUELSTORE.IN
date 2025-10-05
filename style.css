@@ -144,3 +144,23 @@ body.light-theme .card {
   background: rgba(0,0,0,0.05);
   color: #000;
 }
+/* 🌸 Music Button Style */
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 105, 180, 0.2);
+  color: #fff;
+  border: 2px solid #ff6bd6;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #ff99d6;
+}
+
+.music-btn:hover {
+  background: rgba(255, 105, 180, 0.4);
+  box-shadow: 0 0 20px #ff99d6;
+}
